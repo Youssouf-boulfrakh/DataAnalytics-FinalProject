@@ -1,0 +1,113 @@
+.header {
+  width: 15%;
+  float: left;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-right: 10px;
+  margin-left: 5px;
+  border-style: solid;
+}
+
+.large {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border-style: solid;
+}
+
+.info {
+  width: 90%;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.content {
+  width:90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.component {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.select-component {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  border-color: red;
+  border-width: 5px;
+  border-style: inset;
+
+}
+
+h3 {
+  color: #606060;
+}
+
+h4 {
+  color: #606060;
+  text-align: center;
+}
+
+h6 {
+  color: #606060;
+  text-align: center;
+}
+
+p {
+  font-size: 15px;
+  color: #606060;
+}
+
+tr {
+  font-size: 15px;
+  text-align: left;
+  color: #606060;
+}
+
+th {
+  font-size: 15px;
+  text-align: left;
+  color: #606060;
+  width: 220px;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.col-md-2 {
+  background-color: white;
+}
+
+.col-md-3 {
+  background-color: white;
+}
+
+.col-md-4 {
+  background-color: white;
+}
+
+.col-md-5 {
+  background-color: white;
+}
+
+.col-md-8 {
+  background-color: white;
+}
+
+.table-responsive {
+  background-color: white;
+}

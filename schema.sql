@@ -1,0 +1,11 @@
+CREATE TABLE concrete (
+ Cement_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Blast_Furnace_Slag_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Fly_Ash_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Water_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Superplasticizer_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Coarse_Aggregate_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Fine_Aggregate_kg_in_a_Cubic_Meter_Mixture FLOAT,
+ Age_in_Days FLOAT,
+ Concrete_Compressive_Strength FLOAT
+);

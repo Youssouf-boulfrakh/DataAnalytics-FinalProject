@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+
+<head><meta charset="UTF-8">
+  <title>Concrete: Quality in Question</title>
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white; background-color: #606060; font-size: 30px; text-align: left;" href="/">
+    <!-- <img class="header" src="../images/Concrete.gif" alt=""> -->
+      <img class="header" src="{{url_for('static', filename='Concrete.gif')}}" alt="">
+    
+    <strong>Concrete: Quality in Question</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" style="color: #606060; font-size: 20px;" aria-current="page" href="/">
+          <strong>Home</strong></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: #606060; font-size: 20px;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>Visualizations</strong></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/price">
+            <strong>Concrete Price per Ton</strong></a></li>
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/tons">
+            <strong>Concrete Production by Country</strong></a></li>
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/production">
+            <strong>Concrete Price and Production</strong></a></li>            
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/locations">
+            <strong>Concrete Locations</strong></a></li>
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/correlation">
+            <strong>Correlation Matrix</strong></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: #606060; font-size: 20px;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>About</strong></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/concrete">
+            <strong>Components</strong></a></li>
+            <li><a class="dropdown-item" style="color: #606060; font-size: 16px;" href="/strength">
+            <strong>Age and Strength</strong></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"  style="color: #606060; font-size: 20px;" href="/data">
+          <strong>Data</strong></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3">
+      <form method="POST" action="/predict" role="form", name="concreteform">
+        <div class="form-group">
+          <label for="inputCement">Cement (102-540 kg / m^3) or (6-15%)</label>
+          <input type="text" class="form-control" id="inputCement" name="Cement" placeholder="380">
+        </div>
+        <div class="form-group">
+          <label for="inputBlastFurnaceSlag">Blast Furnace Slag (0-359 kg / m^3) or (0-10%)</label>
+          <input type="text" class="form-control" id="inputBlastFurnaceSlag" name="BlastFurnaceSlag" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label for="inputFlyAsh">Fly Ash (0-200 kg / m^3) or (0-6%)</label>
+         <input type="text" class="form-control" id="inputFlyAsh" name="FlyAsh" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label for="inputWater">Water (122-247 kg / m^3) or (7.0-7.5%)</label>
+          <input type="text" class="form-control" id="inputWater" name="Water" placeholder="190">
+        </div>
+        <div class="form-group">
+          <label for="inputSuperplasticizer">Superplasticizer (0-32 kg / m^3) or (0-1%)</label>
+          <input type="text" class="form-control" id="inputSuperplasticizer" name="Superplasticizer" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label for="inputCoarseAgg">Coarse Aggregate (801-1145 kg / m^3) or (33-49%)</label>
+          <input type="text" class="form-control" id="inputCoarseAgg" name="CoarseAggregate" placeholder="1100">
+        </div>
+        <div class="form-group">
+          <label for="inputFineAgg">Fine Aggregate (594-993 kg / m^3) or (28-37%)</label>
+          <input type="text" class="form-control" id="inputFineAgg" name="FineAggregate" placeholder="900">
+        </div>          
+        <div class="form-group">
+          <label for="inputAge">Age (1-365 Days)</label>
+          <input type="text" class="form-control" id="inputAge" name="Age" placeholder="28">
+        </div>
+        <br>                                                                                                               
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div class="col-md-1">
+    </div>
+ 
+    <div class="col-md-4" id="ourDiv">
+      <div id="myDiv" style="float: left">
+       </div>
+      {%if predictionshigh%}
+      <strong><h3> Your Concrete is High-Strength Grade at: </h3><h4 style= "color: rgb(11, 14, 218)">{{predictionshigh}} (MPa)</h4></strong>
+      {%endif%}
+      {%if predictionscommercial%}
+      <strong><h3> Your Concrete is Commercial Grade at: </h3><h4 style= "color: rgb(5, 141, 66)">{{predictionscommercial}} (MPa)</h4></strong>
+      {%endif%}
+       {%if predictionsresidential%}
+      <strong><h3> Your Concrete is Residential Grade at: </h3><h4 style= "color: rgb(81, 255, 0)">{{predictionsresidential}} (MPa)</h4></strong>
+      {%endif%}
+      {%if predictionsfail%}
+      <strong><h3> Your Concrete is Failing at: </h3> <h4 style= "color: red">{{predictionsfail}} (MPa)</h4></strong>
+      {%endif%}
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-3">
+      <h3>LEGEND</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Interval</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+         <tbody>
+          <tr>
+            <td style= "color: red">0-17 (Mpa)</td>
+            <td>Fail</td>
+          </tr>
+          <tr>
+            <td style= "color: rgb(81, 255, 0)">17-27 (MPa)</td>
+            <td>Residential</td>
+          </tr>
+          <tr>
+            <td style= "color: rgb(5, 141, 66)">28-69 (MPa)</td>
+            <td>Commercial</td>
+          </tr>
+          <tr>
+            <td style= "color: rgb(11, 14, 218)">70+ (MPa)</td>
+            <td>High Strength</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+  </div>
+    
+    
+    
+
+</body>
+</html>
+
